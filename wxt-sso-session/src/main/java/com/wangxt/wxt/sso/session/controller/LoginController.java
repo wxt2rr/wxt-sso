@@ -20,9 +20,4 @@ public class LoginController {
     public LoginResult login(HttpServletRequest request, HttpServletResponse response, String username, String password) {
         return loginService.login(request, response, username, password);
     }
-
-    @RequestMapping("cookie")
-    public void cookie(HttpServletRequest request, HttpServletResponse response) {
-        loginService.cookie(request, response);
-    }
 }

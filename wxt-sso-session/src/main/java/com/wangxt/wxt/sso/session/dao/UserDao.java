@@ -17,11 +17,15 @@ public class UserDao {
         userTable.put(3, new User(3, "root", "111111", null));
     }
 
+    public User queryUser(String name) {
+        return userTable.values().stream().filter(e -> e.getUsername().equalsIgnoreCase(name)).findFirst().get();
+    }
+
     public User queryUser(Integer userId) {
         return userTable.get(userId);
     }
 
-    private void updateUsers(User user) {
+    public void updateUser(User user) {
         userTable.put(user.getUserId(), user);
     }
 }

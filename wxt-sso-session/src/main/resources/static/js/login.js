@@ -18,8 +18,6 @@ function check(thisform) {
         success: function (msg) {
             console.log(msg);
             var code = msg.code;
-            var sid = msg.sid;
-            console.log(code + "|" + sid);
             if (code === 200) {
                 window.location.href = "success.html";
             }else {
