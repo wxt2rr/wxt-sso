@@ -7,9 +7,10 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 @RestController
-@RequestMapping("login")
+@RequestMapping("/")
 public class LoginController {
 
     @Autowired
@@ -19,5 +20,12 @@ public class LoginController {
     @ResponseBody
     public LoginResult login(HttpServletRequest request, HttpServletResponse response, String username, String password) {
         return loginService.login(request, response, username, password);
+    }
+
+    @RequestMapping("{code}")
+    public void code(@PathVariable String code, HttpServletResponse response) throws IOException {
+        response.setStatus(301);
+        response.addHeader("Location", "https://www.chuangkit.com");
+        response.addHeader("Connection", "close");
     }
 }

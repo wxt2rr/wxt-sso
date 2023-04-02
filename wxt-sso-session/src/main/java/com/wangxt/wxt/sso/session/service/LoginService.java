@@ -45,9 +45,12 @@ public class LoginService {
         final String key = String.format("%s_%s", ConstKey.LOGIN_FLAG, sessionId);
         CacheUtil.put(key, user.getUserId().toString());
         CookieUtil.setCookie(response, ConstKey.LOGIN_FLAG, sessionId, "wangxt.com", 60 * 60 * 24 * 7);
+        CookieUtil.setCookie(response, ConstKey.LOGIN_FLAG, sessionId, "chuangkit.com", 60 * 60 * 24 * 7);
 
         // 系统默认 SessionId
         //String sid = request.getSession().getId();
+
+
 
         // 更新登录时间
         user.setLoginTime(LocalDateTime.now());
@@ -98,6 +101,13 @@ public class LoginService {
         response.addCookie(cookie);*/
 
         String id = request.getSession().getId();
+
+
+        Cookie cookie = new Cookie("WXTID", "www.wangxt.com");
+        cookie.setDomain("abc.com");
+        cookie.setPath("*");
+        cookie.setHttpOnly(true);
+        response.addCookie(cookie);
         System.out.println(id);
     }
 }
