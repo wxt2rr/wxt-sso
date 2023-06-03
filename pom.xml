@@ -14,7 +14,15 @@
         <springboot.version>2.1.1.RELEASE</springboot.version>
         <lombok.version>1.18.4</lombok.version>
         <junit.version>4.12</junit.version>
+        <javax.servlet-api.version>4.0.1</javax.servlet-api.version>
+        <build.plugins.plugin.version>1.6</build.plugins.plugin.version>
     </properties>
+
+    <modules>
+        <module>wxt-sso-core</module>
+        <module>wxt-sso-server</module>
+        <module>wxt-sso-client</module>
+    </modules>
 
     <dependencyManagement>
         <dependencies>
@@ -38,7 +46,52 @@
                 <version>${junit.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${springboot.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.apache.logging.log4j</groupId>
+                        <artifactId>log4j-api</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
+    <dependencies>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>${javax.servlet-api.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${springboot.version}</version>
+                <configuration>
+                    <excludes>
+                        <exclude>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                        </exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${springboot.version}</version>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

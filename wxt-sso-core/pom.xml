@@ -8,33 +8,34 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>wxt-sso-session</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>wxt-sso-session</name>
-    <description>wxt-sso-session</description>
+    <artifactId>wxt-sso-core</artifactId>
+    <version>0.0.1-SNAPSHOT</version>f
+    <packaging>jar</packaging>
+
+    <properties>
+        <java.version>8</java.version>
+    </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <artifactId>spring-boot-dependencies</artifactId>
             <version>${springboot.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
+            <type>pom</type>
+            <scope>import</scope>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>${springboot.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.logging.log4j</groupId>
+                    <artifactId>log4j-api</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
-
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-        </dependency>
-
     </dependencies>
 
     <build>
@@ -55,6 +56,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>${springboot.version}</version>
                 <configuration>
                     <source>8</source>
                     <target>8</target>
@@ -62,5 +64,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>
