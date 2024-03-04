@@ -10,7 +10,7 @@ function check(thisform) {
 
     $.ajax({
         type: "POST",
-        url: "login/login",
+        url: "sso/login",
         data: {
             username:name,
             password:pass
@@ -19,7 +19,7 @@ function check(thisform) {
             console.log(msg);
             var code = msg.code;
             if (code === 200) {
-                window.location.href = "success.html";
+                window.location.href = "success";
             }else {
                 alert("登录失败，code:" + code);
             }

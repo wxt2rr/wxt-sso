@@ -22,7 +22,7 @@ $(function () {
                     "<h1>sid：" + sid + "</h1>";
                 body.html(html);
             } else {
-                window.location.href = "index.html";
+                window.location.href = "index";
             }
         }
     });

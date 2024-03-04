@@ -9,15 +9,14 @@
     </parent>
 
     <artifactId>wxt-sso-client</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
     <name>wxt-sso-client</name>
     <description>wxt-sso-client</description>
+    <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-            <version>${springboot.version}</version>
         </dependency>
 
         <dependency>

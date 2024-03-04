@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@Component
+/*@Component
 @WebFilter
 public class SsoFilter implements Filter {
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -24,4 +24,4 @@ public class SsoFilter implements Filter {
 
     public void destroy() {
     }
-}
+}*/

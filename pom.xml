@@ -11,11 +11,14 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <springboot.version>2.1.1.RELEASE</springboot.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <springboot.version>2.4.4</springboot.version>
         <lombok.version>1.18.4</lombok.version>
         <junit.version>4.12</junit.version>
         <javax.servlet-api.version>4.0.1</javax.servlet-api.version>
-        <build.plugins.plugin.version>1.6</build.plugins.plugin.version>
+        <build.plugins.plugin.version>1.8</build.plugins.plugin.version>
     </properties>
 
     <modules>
@@ -28,10 +31,20 @@
         <dependencies>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-dependencies</artifactId>
+                <artifactId>spring-boot-starter</artifactId>
                 <version>${springboot.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <version>${springboot.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-thymeleaf</artifactId>
+                <version>${springboot.version}</version>
             </dependency>
 
             <dependency>

@@ -45,7 +45,7 @@ public class LoginService {
         String sessionId = UUID.randomUUID().toString();
         final String key = String.format("%s_%s", ConstKey.LOGIN_FLAG, sessionId);
         CacheUtil.put(key, user.getUserId().toString());
-        CookieUtil.setCookie(response, ConstKey.LOGIN_FLAG, sessionId, "wangxt.com", 60 * 60 * 24 * 7);
+        CookieUtil.setCookie(response, ConstKey.LOGIN_FLAG, sessionId, "localhost", 60 * 60 * 24 * 7);
         CookieUtil.setCookie(response, ConstKey.LOGIN_FLAG, sessionId, "chuangkit.com", 60 * 60 * 24 * 7);
 
         // 系统默认 SessionId
